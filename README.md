@@ -12,7 +12,7 @@ closing-line and market-efficiency analysis possible.
 > This project only fetches, cleans, and reshapes their freely published files.
 > See [Data source & licensing](#data-source--licensing).
 
-![Premier League goals per game by season](examples/goals_per_season.png)
+![Line chart of English Premier League average goals per game by season, from 1993-94 to the present, built from this dataset](examples/goals_per_season.png)
 
 ## Install
 
