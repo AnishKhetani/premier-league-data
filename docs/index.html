@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>premier-league-data — English Premier League Results &amp; Betting Odds Dataset (Python)</title>
+<meta name="description" content="Open, pip-installable English Premier League match results with full bookmaker odds (opening &amp; closing lines), every season from 1993-94 to the present, 12,700+ matches. CSV &amp; Parquet, sourced from football-data.co.uk.">
+<link rel="canonical" href="https://anishkhetani.github.io/premier-league-data/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="premier-league-data">
+<meta property="og:title" content="premier-league-data — English Premier League Results &amp; Betting Odds Dataset">
+<meta property="og:description" content="Open, pip-installable EPL match results + bookmaker odds (opening &amp; closing lines), 1993-94 to present, 12,700+ matches. CSV &amp; Parquet, via football-data.co.uk.">
+<meta property="og:url" content="https://anishkhetani.github.io/premier-league-data/">
+<meta property="og:image" content="https://raw.githubusercontent.com/AnishKhetani/premier-league-data/main/examples/goals_per_season.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="premier-league-data — EPL Results &amp; Betting Odds Dataset">
+<meta name="twitter:description" content="Open, pip-installable EPL match results + bookmaker odds (opening &amp; closing lines), 1993-94 to present. CSV &amp; Parquet, via football-data.co.uk.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/AnishKhetani/premier-league-data/main/examples/goals_per_season.png">
+
+<!-- Structured data: Google Dataset Search indexes this -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "premier-league-data: English Premier League Results & Betting Odds Dataset",
+  "description": "Open, pip-installable English Premier League match results with full bookmaker odds (opening and closing lines), every season from 1993-94 to the present (12,700+ matches), shipped as tidy CSV and Parquet tables. Two tables: core match results, and results joined with 183 bookmaker odds columns. Underlying data sourced from football-data.co.uk; pipeline code is MIT licensed.",
+  "url": "https://github.com/AnishKhetani/premier-league-data",
+  "sameAs": "https://anishkhetani.github.io/premier-league-data/",
+  "keywords": [
+    "premier league",
+    "english premier league",
+    "EPL",
+    "football",
+    "soccer",
+    "match results",
+    "betting odds",
+    "closing line",
+    "open data",
+    "sports data"
+  ],
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "temporalCoverage": "1993-08/..",
+  "creator": {
+    "@type": "Person",
+    "name": "Anish Khetani"
+  },
+  "isBasedOn": {
+    "@type": "Dataset",
+    "name": "Football-Data.co.uk historical results and odds",
+    "url": "https://www.football-data.co.uk/"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://github.com/AnishKhetani/premier-league-data/tree/main/data/processed"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "contentUrl": "https://github.com/AnishKhetani/premier-league-data/tree/main/data/processed"
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1d21;
+    --muted: #5c6570;
+    --border: #e4e7eb;
+    --card: #f7f8fa;
+    --accent: #37003c; /* Premier League purple */
+    --accent-fg: #ffffff;
+    --code-bg: #f2f3f5;
+    --link: #6b2d72;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --fg: #e7e9ec;
+      --muted: #9aa4af;
+      --border: #262b33;
+      --card: #171a20;
+      --accent: #ff2882; /* PL pink accent for dark */
+      --accent-fg: #14001a;
+      --code-bg: #171a20;
+      --link: #ff7ab6;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px 80px; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header {
+    background: var(--accent);
+    color: var(--accent-fg);
+    padding: 56px 20px 48px;
+    text-align: center;
+  }
+  header .inner { max-width: 820px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 12px; line-height: 1.2; }
+  header p { margin: 0 auto; max-width: 640px; font-size: 1.08rem; opacity: 0.95; }
+  .badges { margin-top: 22px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    font-size: 0.8rem; padding: 4px 10px; border-radius: 999px;
+    background: rgba(255,255,255,0.16); color: var(--accent-fg); border: 1px solid rgba(255,255,255,0.28);
+  }
+  .cta { margin-top: 26px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px; font-weight: 600;
+    background: var(--accent-fg); color: var(--accent); border: 1px solid transparent;
+  }
+  .btn.secondary { background: transparent; color: var(--accent-fg); border-color: rgba(255,255,255,0.4); }
+  .btn:hover { text-decoration: none; opacity: 0.92; }
+  h2 { font-size: 1.35rem; margin: 44px 0 14px; }
+  h3 { font-size: 1.05rem; margin: 26px 0 8px; }
+  p { margin: 0 0 14px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 28px 0; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat .n { font-size: 1.5rem; font-weight: 700; color: var(--fg); }
+  .stat .l { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px; overflow-x: auto; font-size: 0.9rem; margin: 0 0 16px;
+  }
+  code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9em; }
+  p code, li code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin: 0 0 16px; }
+  .note { color: var(--muted); font-size: 0.92rem; }
+  img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); }
+  footer { border-top: 1px solid var(--border); margin-top: 56px; padding-top: 20px; color: var(--muted); font-size: 0.88rem; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>premier-league-data</h1>
+    <p>Open, pip-installable <strong>English Premier League match results</strong> with every bookmaker's odds kept intact — opening <em>and</em> closing lines — from 1993-94 to the present.</p>
+    <div class="badges">
+      <span class="badge">Python 3.9+</span>
+      <span class="badge">MIT code license</span>
+      <span class="badge">CSV &amp; Parquet</span>
+      <span class="badge">data: football-data.co.uk</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://github.com/AnishKhetani/premier-league-data">View on GitHub</a>
+      <a class="btn secondary" href="#install">Install</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat"><div class="n">12,700+</div><div class="l">matches</div></div>
+    <div class="stat"><div class="n">1993-94→</div><div class="l">every season</div></div>
+    <div class="stat"><div class="n">183</div><div class="l">odds columns</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">tidy tables</div></div>
+  </div>
+
+  <p>Most public "Premier League results" datasets throw away the betting odds. This one keeps
+  them all — including <strong>opening and closing</strong> prices — which is what makes
+  closing-line and market-efficiency analysis possible. Everything is cleaned into two tidy
+  tables, shipped as <strong>CSV and Parquet</strong>, and bundled inside the package so they
+  load in one line of Python — no download or scraping required.</p>
+
+  <div class="card note">
+    <strong>Data source: <a href="https://www.football-data.co.uk/">football-data.co.uk</a>.</strong>
+    This project only fetches, cleans, and reshapes their freely published files. If you use
+    this data, please credit football-data.co.uk. Pipeline code is MIT licensed; the project
+    claims no ownership over the underlying data.
+  </div>
+
+  <img src="https://raw.githubusercontent.com/AnishKhetani/premier-league-data/main/examples/goals_per_season.png"
+       alt="Line chart of English Premier League average goals per game by season, from 1993-94 to the present, built from this dataset">
+
+  <h2 id="install">Install</h2>
+  <pre><code>pip install git+https://github.com/AnishKhetani/premier-league-data</code></pre>
+
+  <h2>Quickstart</h2>
+  <pre><code>import premier_league_data as pl
+
+results = pl.load_results()                    # 12,700+ matches, all seasons
+table   = results[results.season == "2023-24"] # slice a single season
+odds    = pl.load_results_with_odds("2023-24") # same rows + every bookmaker's odds
+print(pl.available_seasons()[:3])              # ['1993-94', '1994-95', '1995-96']</code></pre>
+
+  <h2>The data</h2>
+  <p>Two tables, each shipped as CSV and Parquet and bundled inside the package:</p>
+  <h3><code>results</code> — core match results</h3>
+  <p>One row per match, standardized across every era: season, date, teams, full-time and
+  half-time goals and results, referee, and a stable <code>match_id</code>.</p>
+  <h3><code>results_with_odds</code> — results + all bookmaker odds</h3>
+  <p>The match-identity keys plus <strong>183 odds columns</strong> — 1X2, over/under 2.5, and
+  Asian-handicap prices, with opening and <code>_close</code> (closing-line) values across
+  bet365, Pinnacle, William Hill, Bwin, Ladbrokes, Betfair and more. Odds are sparse: a column
+  is empty for seasons where that bookmaker or market wasn't quoted.</p>
+
+  <h2>Reproducible</h2>
+  <p>The data is reproducible end-to-end — nothing is hand-edited. A GitHub Actions workflow
+  re-runs the pipeline weekly during the season and opens a PR when the current-season data
+  changes. Full column specification is in
+  <a href="https://github.com/AnishKhetani/premier-league-data/blob/main/SPEC.md">SPEC.md</a>.</p>
+
+  <h2>Cite / license</h2>
+  <ul>
+    <li><strong>Pipeline code:</strong> MIT — see <a href="https://github.com/AnishKhetani/premier-league-data/blob/main/LICENSE">LICENSE</a>.</li>
+    <li><strong>Underlying data:</strong> from football-data.co.uk; see <a href="https://github.com/AnishKhetani/premier-league-data/blob/main/DATA_LICENSE.md">DATA_LICENSE.md</a>.</li>
+    <li><strong>Citation:</strong> a <a href="https://github.com/AnishKhetani/premier-league-data/blob/main/CITATION.cff">CITATION.cff</a> is included — use GitHub's "Cite this repository" button.</li>
+  </ul>
+
+  <footer>
+    <a href="https://github.com/AnishKhetani/premier-league-data">github.com/AnishKhetani/premier-league-data</a>
+    · Data by <a href="https://www.football-data.co.uk/">football-data.co.uk</a>
+    · Code MIT licensed
+  </footer>
+
+</div>
+</body>
+</html>

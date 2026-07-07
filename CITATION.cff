@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: >-
+  If you use this dataset, please cite it as below, and credit
+  football-data.co.uk as the underlying data source.
+title: >-
+  premier-league-data: English Premier League Results & Betting Odds Dataset
+abstract: >-
+  Open, pip-installable English Premier League match results with full
+  bookmaker odds (opening and closing lines), every season from 1993-94 to the
+  present, shipped as tidy CSV and Parquet tables. Data sourced from
+  football-data.co.uk; pipeline code is MIT licensed.
+type: dataset
+authors:
+  - family-names: Khetani
+    given-names: Anish
+url: "https://github.com/AnishKhetani/premier-league-data"
+repository-code: "https://github.com/AnishKhetani/premier-league-data"
+license: MIT
+version: "0.1.0"
+keywords:
+  - premier league
+  - english premier league
+  - epl
+  - football
+  - soccer
+  - match results
+  - betting odds
+  - closing line
+  - open data
+  - sports data
+  - dataset
+references:
+  - type: data
+    title: Football-Data.co.uk historical results and odds
+    url: "https://www.football-data.co.uk/"
+    notes: >-
+      Underlying source data. This project fetches, cleans, and reshapes their
+      freely published files; it claims no ownership over the data.

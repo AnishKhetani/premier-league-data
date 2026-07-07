@@ -1,8 +1,14 @@
-# premier-league-data
+# premier-league-data — English Premier League Results & Betting Odds Dataset (Python)
+
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/code%20license-MIT-green)](LICENSE)
+[![Data: football-data.co.uk](https://img.shields.io/badge/data-football--data.co.uk-orange)](https://www.football-data.co.uk/)
+[![Last commit](https://img.shields.io/github/last-commit/AnishKhetani/premier-league-data)](https://github.com/AnishKhetani/premier-league-data/commits)
 
 **Open, pip-installable English Premier League results — with every bookmaker's
 odds kept intact.** Every season from **1993-94 to the present** (12,700+
-matches), cleaned into two tidy tables and bundled so they load in one line.
+matches), cleaned into two tidy CSV/Parquet tables and bundled so they load in
+one line of Python — no download or scraping required.
 
 Most public "PL results" datasets throw away the betting odds. This one keeps
 them all — including **opening *and* closing** prices — which is what makes
@@ -13,6 +19,14 @@ closing-line and market-efficiency analysis possible.
 > See [Data source & licensing](#data-source--licensing).
 
 ![Line chart of English Premier League average goals per game by season, from 1993-94 to the present, built from this dataset](examples/goals_per_season.png)
+
+## Contents
+
+- [Install](#install)
+- [Quickstart](#quickstart)
+- [The data](#the-data)
+- [Regenerate from source](#regenerate-from-source)
+- [Data source & licensing](#data-source--licensing)
 
 ## Install
 

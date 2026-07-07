@@ -12,22 +12,35 @@ license = { text = "MIT" }
 authors = [{ name = "Anish Khetani" }]
 keywords = [
     "premier-league",
+    "epl",
     "football",
     "soccer",
     "dataset",
+    "open-data",
     "results",
+    "match-results",
     "betting-odds",
     "closing-line",
     "sports-data",
+    "sports-betting",
     "football-data",
     "pandas",
+    "csv",
+    "parquet",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
     "pandas>=1.5",
@@ -41,8 +54,9 @@ fetch = ["requests>=2.28"]
 dev = ["requests>=2.28", "matplotlib>=3.6", "jupyter", "nbconvert", "nbformat"]
 
 [project.urls]
-Homepage = "https://github.com/AnishKhetani/premier-league-data"
+Homepage = "https://anishkhetani.github.io/premier-league-data/"
 Source = "https://github.com/AnishKhetani/premier-league-data"
+"Bug Tracker" = "https://github.com/AnishKhetani/premier-league-data/issues"
 "Data source" = "https://www.football-data.co.uk/"
 
 [tool.setuptools.packages.find]
