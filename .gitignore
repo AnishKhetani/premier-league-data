@@ -1,0 +1,20 @@
+# Raw per-season source CSVs — kept out of the repo to stay light.
+# Regenerate any time with: python scripts/fetch_data.py
+data/raw/
+
+# Python build / cache artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+*.whl
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments / local env
+.venv/
+venv/
+.env

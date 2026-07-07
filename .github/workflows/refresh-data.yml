@@ -1,0 +1,61 @@
+name: Weekly data refresh
+
+# Re-fetch the current season from football-data.co.uk and rebuild the tables.
+# Runs Monday mornings during the season (Aug-May) and opens a PR only if the
+# data actually changed, so the current-season tables stay current hands-free.
+
+on:
+  schedule:
+    # 06:12 UTC every Monday, August-December and January-May (in-season).
+    - cron: "12 6 * 8,9,10,11,12,1,2,3,4,5 1"
+  workflow_dispatch: {}   # allow manual runs any time
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip requests pandas pyarrow
+
+      # Older season files never change, so cache the raw downloads and only
+      # force-refresh the current season -- keeps us polite to the source host.
+      - name: Restore cached raw season files
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-seasons-v1
+
+      - name: Backfill any missing seasons (cached ones are skipped)
+        run: python scripts/fetch_data.py
+
+      - name: Force-refresh the current season
+        continue-on-error: true   # newest season may not be published yet
+        run: python scripts/fetch_data.py --latest
+
+      - name: Rebuild results + odds tables
+        run: python scripts/build_dataset.py
+
+      - name: Open a PR if the data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: weekly refresh from football-data.co.uk"
+          title: "Weekly data refresh"
+          body: >
+            Automated weekly refresh of Premier League data from
+            football-data.co.uk. Updates the processed `results` / `results_with_odds`
+            tables and the bundled package data. Merge to publish the latest matches.
+          branch: automated/data-refresh
+          delete-branch: true
+          add-paths: |
+            data/processed
+            src/premier_league_data/data
