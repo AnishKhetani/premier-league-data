@@ -12703,3 +12703,33 @@ match_id,season,season_code,date,home_team,away_team,fthg,ftag,ftr,hthg,htag,htr
 2526-sunderland-chelsea,2025-26,2526,2026-05-24,Sunderland,Chelsea,2,1,H,1,0,H,C Kavanagh
 2526-tottenham-everton,2025-26,2526,2026-05-24,Tottenham,Everton,1,0,H,1,0,H,M Oliver
 2526-westham-leeds,2025-26,2526,2026-05-24,West Ham,Leeds,3,0,H,0,0,D,A Taylor
+2627-arsenal-coventry,2026-27,2627,2026-08-21,Arsenal,Coventry,3,0,H,2,0,H,T Bramall
+2627-brentford-tottenham,2026-27,2627,2026-08-22,Brentford,Tottenham,3,0,H,2,0,H,M Oliver
+2627-everton-crystalpalace,2026-27,2627,2026-08-22,Everton,Crystal Palace,2,0,H,1,0,H,P Tierney
+2627-hull-manunited,2026-27,2627,2026-08-22,Hull,Man United,2,0,H,2,0,H,D England
+2627-ipswich-sunderland,2026-27,2627,2026-08-22,Ipswich,Sunderland,2,1,H,1,1,D,F Hallam
+2627-nottmforest-leeds,2026-27,2627,2026-08-22,Nott'm Forest,Leeds,0,1,A,0,0,D,R Jones
+2627-brighton-astonvilla,2026-27,2627,2026-08-23,Brighton,Aston Villa,4,0,H,4,0,H,P Bankes
+2627-mancity-bournemouth,2026-27,2627,2026-08-23,Man City,Bournemouth,2,1,H,0,1,A,J Gillett
+2627-newcastle-liverpool,2026-27,2627,2026-08-23,Newcastle,Liverpool,2,2,D,1,0,H,S Attwell
+2627-fulham-chelsea,2026-27,2627,2026-08-24,Fulham,Chelsea,2,3,A,1,2,A,J Brooks
+2627-crystalpalace-mancity,2026-27,2627,2026-08-28,Crystal Palace,Man City,1,4,A,0,1,A,A Madley
+2627-bournemouth-everton,2026-27,2627,2026-08-29,Bournemouth,Everton,1,1,D,1,0,H,C Kavanagh
+2627-coventry-hull,2026-27,2627,2026-08-29,Coventry,Hull,0,1,A,0,0,D,J Smith
+2627-liverpool-nottmforest,2026-27,2627,2026-08-29,Liverpool,Nott'm Forest,2,2,D,0,1,A,S Barrott
+2627-tottenham-newcastle,2026-27,2627,2026-08-29,Tottenham,Newcastle,0,2,A,0,0,D,P Bankes
+2627-chelsea-brighton,2026-27,2627,2026-08-30,Chelsea,Brighton,4,3,H,3,1,H,M Oliver
+2627-leeds-brentford,2026-27,2627,2026-08-30,Leeds,Brentford,1,1,D,0,1,A,T Harrington
+2627-manunited-ipswich,2026-27,2627,2026-08-30,Man United,Ipswich,5,2,H,1,1,D,C Pawson
+2627-sunderland-fulham,2026-27,2627,2026-08-30,Sunderland,Fulham,1,0,H,0,0,D,M Salisbury
+2627-astonvilla-arsenal,2026-27,2627,2026-08-31,Aston Villa,Arsenal,0,1,A,0,0,D,J Gillett
+2627-ipswich-liverpool,2026-27,2627,2026-09-04,Ipswich,Liverpool,0,2,A,0,2,A,D England
+2627-brentford-sunderland,2026-27,2627,2026-09-05,Brentford,Sunderland,1,1,D,0,0,D,T Bramall
+2627-brighton-leeds,2026-27,2627,2026-09-05,Brighton,Leeds,1,1,D,0,1,A,S Attwell
+2627-fulham-crystalpalace,2026-27,2627,2026-09-05,Fulham,Crystal Palace,2,3,A,2,1,H,S Barrott
+2627-hull-astonvilla,2026-27,2627,2026-09-05,Hull,Aston Villa,0,0,D,0,0,D,M Oliver
+2627-mancity-coventry,2026-27,2627,2026-09-05,Man City,Coventry,1,0,H,1,0,H,P Tierney
+2627-newcastle-bournemouth,2026-27,2627,2026-09-05,Newcastle,Bournemouth,2,2,D,1,2,A,R Jones
+2627-nottmforest-tottenham,2026-27,2627,2026-09-05,Nott'm Forest,Tottenham,0,0,D,0,0,D,C Pawson
+2627-arsenal-chelsea,2026-27,2627,2026-09-06,Arsenal,Chelsea,2,1,H,1,1,D,C Kavanagh
+2627-everton-manunited,2026-27,2627,2026-09-06,Everton,Man United,2,2,D,0,0,D,J Brooks
